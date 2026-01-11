@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Tech | Sonic Evolution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor-wrapper">
+        <div class="cursor-follower" id="follower"></div>
+        <div class="cursor-dot" id="dot"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">NOVA<span>TECH</span></div>
+            <ul class="nav-links">
+                <li><a href="#innovations">Innovations</a></li>
+                <li><a href="#products">Ecosystem</a></li>
+                <li><a href="#vision">Our Vision</a></li>
+            </ul>
+            <a href="#" class="nav-cta">Get Access</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tag">Available Now / Series 2.0</span>
+                    <h1>The Future of <br><span class="gradient-text">Personal Audio.</span></h1>
+                    <p>Experience obsidian-grade acoustic engineering. The Nova Pulse 2.0 redefine the boundary between
+                        reality and digital sound.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn btn-primary">Reserve Pulse</a>
+                        <a href="#" class="btn btn-secondary">Watch Film</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrap">
+                    <img src="img/hero.png" alt="Nova Pulse 2.0">
+                </div>
+            </div>
+        </section>
+
+        <section id="innovations" class="bento-section container">
+            <div class="section-title">
+                <h2>Engineered Beyond.</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-item bento-large">
+                    <div class="bento-info">
+                        <h3>Quantum Watch</h3>
+                        <p>A polygonal masterpiece of biometric monitoring and neural-sync technology.</p>
+                    </div>
+                    <img src="img/watch.png" alt="Quantum Watch">
+                    <div class="bento-glow"></div>
+                </div>
+
+                <div class="bento-item">
+                    <div class="icon">⚛️</div>
+                    <h3>4nm Core</h3>
+                    <p>Efficiency that outlasts the longest missions. 30% more power.</p>
+                    <div class="bento-glow"></div>
+                </div>
+
+                <div class="bento-item">
+                    <div class="icon">🛡️</div>
+                    <h3>Obsidian Shell</h3>
+                    <p>Poly-ceramic coating resistant to extreme thermal shifts.</p>
+                    <div class="bento-glow"></div>
+                </div>
+
+                <div class="bento-item bento-tall">
+                    <div class="icon">⚡</div>
+                    <h3>Pulse Sync</h3>
+                    <p>Sub-millisecond latency for instant auditory feedback. No more delays.</p>
+                    <div class="bento-glow"></div>
+                </div>
+
+                <div class="bento-item">
+                    <div class="icon">🌐</div>
+                    <h3>Mesh-Link</h3>
+                    <p>Seamless handoff between all your Nova devices.</p>
+                    <div class="bento-glow"></div>
+                </div>
+
+                <div class="bento-item">
+                    <div class="icon">🔊</div>
+                    <h3>Spatial IX</h3>
+                    <p>360-degree immersion with dynamic head tracking.</p>
+                    <div class="bento-glow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">NOVA<span>TECH</span></div>
+                    <p>Pioneering the next era of human-machine interaction through refined aesthetics and quantum
+                        logic.</p>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="#">Pulse Earbuds</a></li>
+                            <li><a href="#">Quantum Watch</a></li>
+                            <li><a href="#">Core Laptop</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">Our Vision</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">X / Twitter</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nova Tech Labs. Designed in Obsidian Hall.</p>
+                <div class="legal-links">
+                    <a href="#" style="margin-left: 20px; color: inherit; text-decoration: none;">Privacy</a>
+                    <a href="#" style="margin-left: 20px; color: inherit; text-decoration: none;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Logic
+        const follower = document.getElementById('follower');
+        const dot = document.getElementById('dot');
+
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Standard dot
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+
+            // Follower with delay
+            setTimeout(() => {
+                follower.style.left = x + 'px';
+                follower.style.top = y + 'px';
+            }, 50);
+        });
+
+        // Intersection Observer for Scroll Reveals
+        const revealCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, { threshold: 0.1 });
+
+        document.querySelectorAll('.bento-item, .hero-content, .hero-image-wrap').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(el);
+        });
+
+        // Add special CSS for revealed state
+        const style = document.createElement('style');
+        style.textContent = '.revealed { opacity: 1 !important; transform: translateY(0) !important; }';
+        document.head.append(style);
+    </script>
+</body>
+
+</html>

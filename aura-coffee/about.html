@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Aura Coffee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Aura <span>Coffee</span></div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#menu">Menú</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header" style="background-image: url('img/interior.png');">
+        <div class="container">
+            <h1 class="reveal">Nuestra Historia</h1>
+            <p class="reveal delay-1">Tradición, pasión y el aroma de un sueño compartido.</p>
+        </div>
+    </section>
+
+    <section class="story-section container">
+        <div class="story-grid">
+            <div class="story-content reveal">
+                <h2>Desde el grano hasta su taza</h2>
+                <p>En Aura Coffee, creemos que el café es más que una bebida; es un ritual, una pausa necesaria en el
+                    caos del día a día. Nuestra historia comenzó en las tierras altas, buscando el grano perfecto.</p>
+                <p>Cada lote es seleccionado a mano y tostado en pequeñas cantidades para asegurar que cada nota de
+                    sabor brille con la intensidad que la naturaleza le otorgó.</p>
+            </div>
+            <div class="story-image reveal delay-1">
+                <img src="img/team.png" alt="Nuestro Maestro Barista">
+            </div>
+        </div>
+    </section>
+
+    <section class="features container">
+        <div class="feature-item reveal">
+            <h3>Nuestra Misión</h3>
+            <p>Elevar la cultura del café a través de la educación y la excelencia en el servicio.</p>
+        </div>
+        <div class="feature-item reveal delay-1">
+            <h3>Sostenibilidad</h3>
+            <p>Comprometidos con el comercio justo y prácticas agrícolas que respetan la tierra.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">Aura <span>Coffee</span></div>
+                <p>Pasión por el café, devoción por la calidad.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                    <li><a href="#">Franquicias</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <span>IG</span> <span>FB</span> <span>TW</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura Coffee. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

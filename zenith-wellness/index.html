@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Resort & Wellness | Santuario de Lujo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="container">
+            <div class="logo">ZENITH</div>
+            <ul class="nav-links">
+                <li><a href="#about">El Retiro</a></li>
+                <li><a href="#servicios">Programas</a></li>
+                <li><a href="#ubicaciones">Destinos</a></li>
+            </ul>
+            <a href="#" class="nav-btn">Reservar</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-overlay"></div>
+            <img src="img/hero.png" alt="Resort Exterior" class="hero-img">
+            <div class="hero-content">
+                <div class="hero-badges reveal">
+                    <span class="badge">Estilo de Vida</span>
+                    <span class="badge">Salud Holística</span>
+                </div>
+                <h1 class="reveal">El Arte del <span>Bienestar.</span></h1>
+                <p class="reveal">Descubra el santuario donde la arquitectura minimalista y la medicina antigua se unen
+                    para restaurar su equilibrio natural.</p>
+                <div class="reveal">
+                    <a href="#about" class="nav-btn">Explorar la Propiedad</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="editorial-section container">
+            <div class="split-grid">
+                <div class="split-img reveal">
+                    <img src="img/spa.png" alt="Interior Lounge">
+                </div>
+                <div class="split-content reveal">
+                    <h2>Espacios que Respira.</h2>
+                    <p>En Zenith, cada rincón ha sido diseñado para inducir la calma. Utilizamos piedra natural de
+                        Alabastro y lino orgánico para crear una atmósfera de pureza absoluta y sofisticación discreta.
+                    </p>
+                    <p>Nuestra propiedad en el desierto ofrece un aislamiento total, permitiendo un reconexión profunda
+                        con el silencio y la naturaleza.</p>
+                    <a href="#" class="service-link">Nuestro Manifiesto &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="services-section container">
+            <div class="section-title reveal">
+                <p>Nuestra Curación</p>
+                <h2>Servicios Exclusivos</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <h3>Hidroterapia</h3>
+                    <p>Circuitos de agua mineralizada a temperaturas controladas para desintoxicar el cuerpo y mejorar
+                        la circulación.</p>
+                    <a href="#" class="service-link">Detalles &rarr;</a>
+                </div>
+
+                <div class="service-card reveal">
+                    <h3>Bio-Restauración</h3>
+                    <p>Tratamientos faciales y corporales utilizando extractos botánicos de alta pureza y tecnología no
+                        invasiva.</p>
+                    <a href="#" class="service-link">Detalles &rarr;</a>
+                </div>
+
+                <div class="service-card reveal">
+                    <h3>Neuro-Silencio</h3>
+                    <p>Sesiones de meditación guiada con aislamiento acústico completo para resetear el sistema
+                        nervioso.</p>
+                    <a href="#" class="service-link">Detalles &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">ZENITH</div>
+                    <p>Institución líder en la curaduría de experiencias de bienestar y lujo consciente alrededor del
+                        mundo.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Propiedad</h4>
+                    <ul>
+                        <li><a href="#">El Retiro</a></li>
+                        <li><a href="#">Instalaciones</a></li>
+                        <li><a href="#">Gastronomía</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Programas</h4>
+                    <ul>
+                        <li><a href="#">Detox Global</a></li>
+                        <li><a href="#">Mindfulness</a></li>
+                        <li><a href="#">Bio-Aging</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Reservas</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZENITH RESORTS LTD. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 20px;">LinkedIn</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 20px;">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

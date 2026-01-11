@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nexus | High-End UI/UX Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent-aura: #8b5cf6;
+            --accent-nova: #9d00ff;
+            --accent-zenith: #c5a67c;
+            --text: #ffffff;
+            --text-dim: #a1a1aa;
+            --card-glass: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --transition: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes bg-glow {
+            0% {
+                transform: translate(-30%, -30%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-20%, -20%) rotate(360deg);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Generative Background */
+        .bg-nexus {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-glow-ball {
+            position: absolute;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            top: -20%;
+            left: -10%;
+            filter: blur(100px);
+            animation: bg-glow 30s infinite alternate var(--transition);
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 120px;
+        }
+
+        header .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 6rem;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 24px;
+            background: linear-gradient(to bottom, #fff 50%, #444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Nexus Grid */
+        .nexus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .nexus-card {
+            position: relative;
+            height: 600px;
+            border-radius: 40px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--card-border);
+            background: var(--card-glass);
+            backdrop-filter: blur(10px);
+            transition: all 0.6s var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 60px 40px;
+        }
+
+        .nexus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 60%);
+            z-index: 2;
+        }
+
+        .nexus-card .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.3;
+            transition: transform 1.2s var(--transition), opacity 0.6s ease;
+            filter: grayscale(100%);
+        }
+
+        /* Hover States */
+        .nexus-card:hover {
+            transform: scale(1.02) translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .nexus-card:hover .card-bg {
+            transform: scale(1.1);
+            opacity: 0.6;
+            filter: grayscale(0%);
+        }
+
+        .nexus-card:hover.aura {
+            border-color: var(--accent-aura);
+        }
+
+        .nexus-card:hover.nova {
+            border-color: var(--accent-nova);
+        }
+
+        .nexus-card:hover.zenith {
+            border-color: var(--accent-zenith);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.6;
+        }
+
+        .nexus-card h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .nexus-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            max-width: 280px;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        .explore-btn span {
+            width: 40px;
+            height: 1px;
+            background: #fff;
+            transition: width 0.4s var(--transition);
+        }
+
+        .nexus-card:hover .explore-btn span {
+            width: 80px;
+        }
+
+        /* Animations on Load */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s var(--transition);
+        }
+
+        .active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 100px 0;
+            opacity: 0.3;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 1100px) {
+            header h1 {
+                font-size: 4rem;
+            }
+
+            .nexus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nexus-card {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-nexus">
+        <div class="bg-glow-ball"></div>
+        <div class="stars"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="tag reveal">Collection 2026</span>
+            <h1 class="reveal">The Nexus</h1>
+            <p class="reveal">Un ecosistema de experiencias digitales de alto impacto. Tres visiones, una frontera
+                común.</p>
+        </header>
+
+        <div class="nexus-grid">
+            <a href="aura-coffee/index.html" class="nexus-card aura reveal" style="transition-delay: 0.1s;">
+                <img src="aura-coffee/img/hero.png" alt="" class="card-bg">
+                <div class="card-content">
+                    <span class="card-tag">Heritage</span>
+                    <h3>Aura Coffee</h3>
+                    <p>Tradición y exclusividad en cada trazo.</p>
+                    <div class="explore-btn">Enter Concept <span></span></div>
+                </div>
+            </a>
+
+            <a href="nova-tech/index.html" class="nexus-card nova reveal" style="transition-delay: 0.2s;">
+                <img src="nova-tech/img/hero.png" alt="" class="card-bg">
+                <div class="card-content">
+                    <span class="card-tag">Frontier</span>
+                    <h3>Nova Tech</h3>
+                    <p>La estética de la alta ingeniería obsesiva.</p>
+                    <div class="explore-btn">Enter Concept <span></span></div>
+                </div>
+            </a>
+
+            <a href="zenith-wellness/index.html" class="nexus-card zenith reveal" style="transition-delay: 0.3s;">
+                <img src="zenith-wellness/img/hero.png" alt="" class="card-bg">
+                <div class="card-content">
+                    <span class="card-tag">Balance</span>
+                    <h3>Zenith Wellness</h3>
+                    <p>Arquitectura profesional para el santuario interior.</p>
+                    <div class="explore-btn">Enter Concept <span></span></div>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2026 Nexus Group / Created for High-End Markets
+        </footer>
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Background subtle movement
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            const ball = document.querySelector('.bg-glow-ball');
+            ball.style.transform = `translate(${x * 50 - 25}%, ${y * 50 - 25}%)`;
+        });
+    </script>
+</body>
+
+</html>

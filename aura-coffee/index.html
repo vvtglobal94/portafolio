@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Aura Coffee - Experiencia Gourmet en cada sorbo. El mejor café artesanal en un ambiente elegante.">
+    <title>Aura Coffee | Experiencia Gourmet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Aura <span>Coffee</span></div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#menu">Menú</a></li>
+                <li><a href="about.html">Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero"
+        style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/hero.png');">
+        <div class="hero-content container">
+            <h1 class="reveal">El Arte del <span>Café Perfecto</span></h1>
+            <p class="reveal delay-1">Descubre granos seleccionados y tostados artesanalmente para despertar tus
+                sentidos.</p>
+            <div class="hero-btns reveal delay-2">
+                <a href="index.html#menu" class="btn btn-primary">Ver Menú</a>
+                <a href="about.html" class="btn btn-secondary">Leer Más</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features container">
+        <div class="feature-item reveal">
+            <div class="icon">☕</div>
+            <h3>Granos de Origen</h3>
+            <p>Trabajamos directamente con productores locales para garantizar la mejor calidad.</p>
+        </div>
+        <div class="feature-item reveal delay-1">
+            <div class="icon">🌿</div>
+            <h3>Tostado Diario</h3>
+            <p>Tostamos nuestros granos cada mañana para preservar su aroma y frescura.</p>
+        </div>
+        <div class="feature-item reveal delay-2">
+            <div class="icon">🥐</div>
+            <h3>Repostería Fina</h3>
+            <p>Acompaña tu café con nuestra selección de panadería francesa artesanal.</p>
+        </div>
+    </section>
+
+    <section id="menu" class="menu container">
+        <div class="section-title">
+            <span>Nuestra Selección</span>
+            <h2>Favoritos de la Casa</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-info">
+                    <h3>Espresso Intenso</h3>
+                    <p>Cuerpo denso y aroma penetrante.</p>
+                    <span class="price">$45</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-info">
+                    <h3>Latte Macchiato</h3>
+                    <p>Capas perfectas de leche y espresso.</p>
+                    <span class="price">$65</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-info">
+                    <h3>Flat White</h3>
+                    <p>Elegancia sedosa para paladares finos.</p>
+                    <span class="price">$70</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-info">
+                    <h3>Affogato</h3>
+                    <p>Gelato de vainilla bañado en espresso.</p>
+                    <span class="price">$85</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">Aura <span>Coffee</span></div>
+                <p>Pasión por el café, devoción por la calidad.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                    <li><a href="#">Franquicias</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <span>IG</span> <span>FB</span> <span>TW</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura Coffee. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

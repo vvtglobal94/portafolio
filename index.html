@@ -4,430 +4,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VVT Visión | High-End UI/UX Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="VVT Visión - Portafolio de experiencias digitales de alto impacto">
+    <title>VVT Visión | Portfolio Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
+        /* ===== DESIGN SYSTEM ===== */
         :root {
-            --bg: #050505;
-            --accent-aura: #8b5cf6;
-            --accent-nova: #9d00ff;
-            --accent-zenith: #c5a67c;
-            --text: #ffffff;
-            --text-dim: #a1a1aa;
-            --card-glass: rgba(255, 255, 255, 0.02);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --transition: cubic-bezier(0.16, 1, 0.3, 1);
+            /* Colors */
+            --color-bg: #0a0a0a;
+            --color-surface: #141414;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #a0a0a0;
+            --color-border: rgba(255, 255, 255, 0.1);
+
+            /* Spacing Scale (8px base) */
+            --space-xs: 0.5rem;
+            /* 8px */
+            --space-sm: 1rem;
+            /* 16px */
+            --space-md: 1.5rem;
+            /* 24px */
+            --space-lg: 2rem;
+            /* 32px */
+            --space-xl: 3rem;
+            /* 48px */
+            --space-2xl: 4rem;
+            /* 64px */
+            --space-3xl: 6rem;
+            /* 96px */
+
+            /* Typography Scale */
+            --text-xs: 0.75rem;
+            /* 12px */
+            --text-sm: 0.875rem;
+            /* 14px */
+            --text-base: 1rem;
+            /* 16px */
+            --text-lg: 1.125rem;
+            /* 18px */
+            --text-xl: 1.25rem;
+            /* 20px */
+            --text-2xl: 1.5rem;
+            /* 24px */
+            --text-3xl: 2rem;
+            /* 32px */
+            --text-4xl: 2.5rem;
+            /* 40px */
+            --text-5xl: 3rem;
+            /* 48px */
+            --text-6xl: 4rem;
+            /* 64px */
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        @keyframes bg-glow {
-            0% {
-                transform: translate(-30%, -30%) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(-20%, -20%) rotate(360deg);
-            }
-        }
-
-        * {
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Generative Background */
-        .bg-nexus {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-glow-ball {
-            position: absolute;
-            width: 80vw;
-            height: 80vw;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            top: -20%;
-            left: -10%;
-            filter: blur(100px);
-            animation: bg-glow 30s infinite alternate var(--transition);
-        }
-
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.3;
-        }
-
+        /* ===== LAYOUT ===== */
         .container {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 120px 40px;
-            position: relative;
-            z-index: 10;
+            padding: 0 var(--space-lg);
         }
 
-        header {
+        /* ===== HEADER ===== */
+        .header {
+            padding: var(--space-3xl) 0;
             text-align: center;
-            margin-bottom: 120px;
         }
 
-        header .tag {
+        .header__badge {
             display: inline-block;
-            padding: 6px 16px;
-            background: var(--card-glass);
-            border: 1px solid var(--card-border);
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--color-border);
             border-radius: 100px;
-            font-size: 0.7rem;
+            font-size: var(--text-xs);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-dim);
-            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
         }
 
-        header h1 {
-            font-size: 6rem;
-            font-weight: 800;
-            letter-spacing: -4px;
-            line-height: 0.9;
-            margin-bottom: 24px;
-            background: linear-gradient(to bottom, #fff 50%, #444 100%);
+        .header__title {
+            font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            font-size: 1.25rem;
-            color: var(--text-dim);
+        .header__subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
             max-width: 600px;
             margin: 0 auto;
-            font-weight: 300;
+            font-weight: 400;
         }
 
-        /* Nexus Grid */
-        .nexus-grid {
+        /* ===== GRID SYSTEM ===== */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+            gap: var(--space-lg);
+            padding: var(--space-2xl) 0;
         }
 
-        .nexus-card {
+        /* ===== CARD COMPONENT ===== */
+        .card {
             position: relative;
-            height: 600px;
-            border-radius: 40px;
+            aspect-ratio: 4 / 5;
+            border-radius: 16px;
             overflow: hidden;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-base);
+            cursor: pointer;
             text-decoration: none;
             color: inherit;
-            border: 1px solid var(--card-border);
-            background: var(--card-glass);
-            backdrop-filter: blur(10px);
-            transition: all 0.6s var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 60px 40px;
         }
 
-        .nexus-card::before {
-            content: '';
+        .card__image {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 60%);
-            z-index: 2;
-        }
-
-        .nexus-card .card-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 1;
-            opacity: 0.3;
-            transition: transform 1.2s var(--transition), opacity 0.6s ease;
-            filter: grayscale(100%);
+            transition: transform var(--transition-slow);
         }
 
-        /* Hover States */
-        .nexus-card:hover {
-            transform: scale(1.02) translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        .card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.9) 0%,
+                    rgba(0, 0, 0, 0.4) 50%,
+                    transparent 100%);
+            transition: opacity var(--transition-base);
         }
 
-        .nexus-card:hover .card-bg {
-            transform: scale(1.1);
-            opacity: 0.6;
-            filter: grayscale(0%);
-        }
-
-        .nexus-card:hover.aura {
-            border-color: var(--accent-aura);
-        }
-
-        .nexus-card:hover.nova {
-            border-color: var(--accent-nova);
-        }
-
-        .nexus-card:hover.zenith {
-            border-color: var(--accent-zenith);
-        }
-
-        .card-content {
+        .card__content {
             position: relative;
+            height: 100%;
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             z-index: 10;
         }
 
-        .card-tag {
-            font-size: 0.75rem;
+        .card__tag {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 6px;
+            font-size: var(--text-xs);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-            display: block;
-            opacity: 0.6;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+            align-self: flex-start;
         }
 
-        .nexus-card h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            line-height: 1;
-            margin-bottom: 20px;
+        .card__title {
+            font-size: var(--text-3xl);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: var(--space-xs);
         }
 
-        .nexus-card p {
-            color: var(--text-dim);
-            font-size: 1rem;
-            margin-bottom: 32px;
-            max-width: 280px;
+        .card__description {
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-md);
         }
 
-        .explore-btn {
+        .card__cta {
             display: inline-flex;
             align-items: center;
-            gap: 15px;
-            font-weight: 700;
+            gap: var(--space-xs);
+            font-size: var(--text-sm);
+            font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
-
-        .explore-btn span {
-            width: 40px;
-            height: 1px;
-            background: #fff;
-            transition: width 0.4s var(--transition);
-        }
-
-        .nexus-card:hover .explore-btn span {
-            width: 80px;
-        }
-
-        /* Animations on Load */
-        .reveal {
+            letter-spacing: 0.05em;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s var(--transition);
+            transform: translateY(10px);
+            transition: all var(--transition-base);
         }
 
-        .active {
+        .card__cta::after {
+            content: '→';
+            transition: transform var(--transition-fast);
+        }
+
+        /* Card Hover States */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover .card__image {
+            transform: scale(1.05);
+        }
+
+        .card:hover .card__cta {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* CTA Section */
-        .nexus-cta {
-            margin-top: 100px;
+        .card:hover .card__cta::after {
+            transform: translateX(4px);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            padding: var(--space-3xl) 0;
             text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.05));
-            border-top: 1px solid var(--card-border);
-            border-radius: 60px 60px 0 0;
         }
 
-        .cta-btn {
-            background: #fff;
-            color: #000;
-            padding: 18px 45px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s var(--transition);
+        .cta__title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta__button {
             display: inline-block;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--color-text-primary);
+            color: var(--color-bg);
+            border: none;
+            border-radius: 100px;
+            font-size: var(--text-base);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all var(--transition-base);
         }
 
-        .cta-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-            background: var(--accent-aura);
-            color: #fff;
+        .cta__button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
-        .cta-input-group {
+        .cta__input-group {
             max-height: 0;
             overflow: hidden;
-            transition: all 0.6s var(--transition);
+            transition: max-height var(--transition-slow);
             margin-top: 0;
-            opacity: 0;
         }
 
-        .cta-input-group.active {
+        .cta__input-group.active {
             max-height: 200px;
-            margin-top: 40px;
-            opacity: 1;
+            margin-top: var(--space-lg);
         }
 
-        .cta-input-group input {
-            background: var(--card-glass);
-            border: 1px solid var(--card-border);
-            padding: 15px 30px;
-            border-radius: 100px;
-            color: #fff;
+        .cta__input {
+            padding: var(--space-md);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            color: var(--color-text-primary);
             font-family: inherit;
+            font-size: var(--text-base);
             width: 100%;
             max-width: 400px;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            margin-bottom: var(--space-md);
         }
 
-        .cta-input-group input:focus {
+        .cta__input:focus {
             outline: none;
-            border-color: var(--accent-aura);
+            border-color: var(--color-text-primary);
         }
 
-        /* Footer */
-        footer {
+        .cta__submit {
+            padding: var(--space-sm) var(--space-lg);
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            color: var(--color-text-primary);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .cta__submit:hover {
+            background: var(--color-text-primary);
+            color: var(--color-bg);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: var(--space-2xl) 0;
             text-align: center;
-            padding: 100px 0;
-            opacity: 0.3;
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            border-top: 1px solid var(--color-border);
         }
 
-        @media (max-width: 1100px) {
-            header h1 {
-                font-size: 4rem;
+        .footer__text {
+            font-size: var(--text-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                padding: var(--space-2xl) 0;
             }
 
-            .nexus-grid {
+            .grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-md);
             }
 
-            .nexus-card {
-                height: 400px;
+            .card__title {
+                font-size: var(--text-2xl);
             }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-6 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-7 {
+            animation-delay: 0.7s;
         }
     </style>
 </head>
 
 <body>
-    <div class="bg-nexus">
-        <div class="bg-glow-ball"></div>
-        <div class="stars"></div>
-    </div>
-
     <div class="container">
-        <header>
-            <span class="tag reveal">Collection 2026</span>
-            <h1 class="reveal">VVT Visión</h1>
-            <p class="reveal">Un ecosistema de experiencias digitales de alto impacto. Tres visiones, una frontera
-                común.</p>
+        <!-- Header -->
+        <header class="header">
+            <span class="header__badge animate-in">Colección 2026</span>
+            <h1 class="header__title animate-in delay-1">VVT Visión</h1>
+            <p class="header__subtitle animate-in delay-2">
+                Portafolio de experiencias digitales de alto impacto diseñadas con excelencia
+            </p>
         </header>
 
-        <div class="nexus-grid">
-            <a href="aura-coffee/index.html" class="nexus-card aura reveal" style="transition-delay: 0.1s;">
-                <img src="aura-coffee/img/hero.png" alt="" class="card-bg">
-                <div class="card-content">
-                    <span class="card-tag">Heritage</span>
-                    <h3>Aura Coffee</h3>
-                    <p>Tradición y exclusividad en cada trazo.</p>
-                    <div class="explore-btn">Enter Concept <span></span></div>
+        <!-- Projects Grid -->
+        <div class="grid">
+            <a href="aura-coffee/index.html" class="card animate-in delay-1">
+                <img src="aura-coffee/img/hero.png" alt="Aura Coffee" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Cafetería</span>
+                    <h2 class="card__title">Aura Coffee</h2>
+                    <p class="card__description">Tradición gourmet y calidez artesanal</p>
+                    <span class="card__cta">Explorar proyecto</span>
                 </div>
             </a>
 
-            <a href="nova-tech/index.html" class="nexus-card nova reveal" style="transition-delay: 0.2s;">
-                <img src="nova-tech/img/hero.png" alt="" class="card-bg">
-                <div class="card-content">
-                    <span class="card-tag">Frontier</span>
-                    <h3>Nova Tech</h3>
-                    <p>La estética de la alta ingeniería obsesiva.</p>
-                    <div class="explore-btn">Enter Concept <span></span></div>
+            <a href="nova-tech/index.html" class="card animate-in delay-2">
+                <img src="nova-tech/img/hero.png" alt="Nova Tech" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Tecnología</span>
+                    <h2 class="card__title">Nova Tech</h2>
+                    <p class="card__description">Ingeniería obsesiva y diseño futurista</p>
+                    <span class="card__cta">Explorar proyecto</span>
                 </div>
             </a>
 
-            <a href="zenith-wellness/index.html" class="nexus-card zenith reveal" style="transition-delay: 0.3s;">
-                <img src="zenith-wellness/img/hero.png" alt="" class="card-bg">
-                <div class="card-content">
-                    <span class="card-tag">Balance</span>
-                    <h3>Zenith Wellness</h3>
-                    <p>Arquitectura profesional para el santuario interior.</p>
-                    <div class="explore-btn">Enter Concept <span></span></div>
+            <a href="zenith-wellness/index.html" class="card animate-in delay-3">
+                <img src="zenith-wellness/img/hero.png" alt="Zenith Wellness" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Bienestar</span>
+                    <h2 class="card__title">Zenith Wellness</h2>
+                    <p class="card__description">Arquitectura editorial para el santuario interior</p>
+                    <span class="card__cta">Explorar proyecto</span>
+                </div>
+            </a>
+
+            <a href="luxe-estates/index.html" class="card animate-in delay-4">
+                <img src="luxe-estates/img/hero.png" alt="Luxe Estates" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Inmobiliaria</span>
+                    <h2 class="card__title">Luxe Estates</h2>
+                    <p class="card__description">Geometría del lujo en bienes raíces</p>
+                    <span class="card__cta">Explorar proyecto</span>
+                </div>
+            </a>
+
+            <a href="vertex-auto/index.html" class="card animate-in delay-5">
+                <img src="vertex-auto/img/hero.png" alt="Vertex Auto" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Automotriz</span>
+                    <h2 class="card__title">Vertex Auto</h2>
+                    <p class="card__description">Ingeniería extrema y velocidad redefinida</p>
+                    <span class="card__cta">Explorar proyecto</span>
+                </div>
+            </a>
+
+            <a href="noir-atelier/index.html" class="card animate-in delay-6">
+                <img src="noir-atelier/img/hero.png" alt="Noir Atelier" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Haute Couture</span>
+                    <h2 class="card__title">Noir Atelier</h2>
+                    <p class="card__description">Editorial de lujo para alta costura</p>
+                    <span class="card__cta">Explorar proyecto</span>
+                </div>
+            </a>
+
+            <a href="quantum-finance/index.html" class="card animate-in delay-7">
+                <img src="quantum-finance/img/hero.png" alt="Quantum Finance" class="card__image">
+                <div class="card__overlay"></div>
+                <div class="card__content">
+                    <span class="card__tag">Fintech</span>
+                    <h2 class="card__title">Quantum Finance</h2>
+                    <p class="card__description">Gestión patrimonial de élite</p>
+                    <span class="card__cta">Explorar proyecto</span>
                 </div>
             </a>
         </div>
 
-        <section class="nexus-cta reveal">
-            <h2 style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 800; letter-spacing: -1px;">¿Listo para
-                elevar su marca?</h2>
-            <button class="cta-btn" onclick="toggleCta()">Quiero una web de este nivel</button>
+        <!-- CTA Section -->
+        <section class="cta">
+            <h2 class="cta__title">¿Listo para elevar su marca?</h2>
+            <button class="cta__button" onclick="toggleCta()">Quiero una web de este nivel</button>
 
-            <div id="ctaInputGroup" class="cta-input-group">
-                <input type="text" id="asuntoInput" placeholder="Escriba el asunto (ej. Mi nueva E-commerce)">
-                <br>
-                <button class="explore-btn" style="background: none; border: none; color: #fff; cursor: pointer;"
-                    onclick="sendToWhatsapp()">
-                    Enviar a WhatsApp <span></span>
-                </button>
+            <div id="ctaInputGroup" class="cta__input-group">
+                <input type="text" id="asuntoInput" class="cta__input" placeholder="Asunto (ej. Mi nueva E-commerce)">
+                <button class="cta__submit" onclick="sendToWhatsapp()">Enviar a WhatsApp</button>
             </div>
         </section>
 
-        <footer>
-            &copy; 2026 VVT Visión / Created for High-End Markets
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer__text">&copy; 2026 VVT Visión. Diseñado para mercados de alto nivel.</p>
         </footer>
     </div>
 
     <script>
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
         // WhatsApp CTA Logic
         function toggleCta() {
             document.getElementById('ctaInputGroup').classList.toggle('active');
@@ -437,20 +527,29 @@
         function sendToWhatsapp() {
             const asunto = document.getElementById('asuntoInput').value;
             const phone = "525638738978";
-            const message = encodeURIComponent(`Hola, me interesa una web de este nivel.\nAsunto: ${asunto || 'Consulta General'}`);
+            const message = encodeURIComponent(`Hola, me interesa una web de este nivel.\\nAsunto: ${asunto || 'Consulta General'}`);
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
-        // Background subtle movement
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            const ball = document.querySelector('.bg-glow-ball');
-            ball.style.transform = `translate(${x * 50 - 25}%, ${y * 50 - 25}%)`;
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
         });
     </script>
 </body>
 
 </html>
-
-

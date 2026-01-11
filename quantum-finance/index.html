@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Finance | Elite Wealth Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="../index.html" class="nav__back">← Portfolio</a>
+        <div class="nav__logo">
+            <span class="logo-q">Q</span>
+            <span class="logo-text">QUANTUM FINANCE</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__content">
+            <span class="hero__label">Elite Wealth Management</span>
+            <h1 class="hero__title">
+                Gestión Patrimonial<br>
+                <span class="gradient-text">de Nueva Generación</span>
+            </h1>
+            <p class="hero__subtitle">
+                Soluciones de inversión cuantitativa para patrimonios superiores a $10M USD
+            </p>
+            <div class="hero__stats">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="47.2">0</div>
+                    <div class="stat-label">Mil Millones AUM</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="23.4">0</div>
+                    <div class="stat-label">% Retorno Anual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="850">0</div>
+                    <div class="stat-label">Clientes UHNW</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__visual">
+            <div class="dashboard-preview">
+                <img src="img/hero.png" alt="Quantum Dashboard" class="dashboard-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Servicios Exclusivos</h2>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Gestión de Portafolio</h3>
+                    <p class="service-description">
+                        Estrategias cuantitativas personalizadas con algoritmos de IA
+                        para maximizar rendimientos ajustados al riesgo.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔐</div>
+                    <h3 class="service-title">Asesoría Privada</h3>
+                    <p class="service-description">
+                        Equipo dedicado de asesores certificados disponibles 24/7
+                        para decisiones estratégicas de inversión.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Diversificación Global</h3>
+                    <p class="service-description">
+                        Acceso a mercados privados, real estate institucional,
+                        y oportunidades alternativas exclusivas.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">Trading Algorítmico</h3>
+                    <p class="service-description">
+                        Ejecución de alta frecuencia con latencia ultra-baja
+                        en mercados globales de renta variable y derivados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="performance">
+        <div class="container">
+            <h2 class="section-title">Rendimiento Histórico</h2>
+            <div class="performance__content">
+                <div class="performance__chart">
+                    <div class="chart-placeholder">
+                        <div class="chart-line"></div>
+                        <div class="chart-grid"></div>
+                    </div>
+                </div>
+                <div class="performance__metrics">
+                    <div class="metric">
+                        <div class="metric-label">Sharpe Ratio</div>
+                        <div class="metric-value">2.84</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Max Drawdown</div>
+                        <div class="metric-value">-8.2%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Volatilidad</div>
+                        <div class="metric-value">12.4%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Alpha</div>
+                        <div class="metric-value">+5.7%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta__content">
+                <h2 class="cta__title">Únase a la Élite Financiera</h2>
+                <p class="cta__text">
+                    Mínimo de inversión: $10,000,000 USD
+                </p>
+                <a href="mailto:private@quantumfinance.com" class="btn-primary">Solicitar Consulta Privada</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <span class="logo-q">Q</span> QUANTUM FINANCE
+                </div>
+                <div class="footer__legal">
+                    <p>Servicios regulados por SEC • FINRA • SIPC</p>
+                    <p>© 2026 Quantum Finance LLC. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animated counters
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = progress * (end - start) + start;
+                element.textContent = value.toFixed(1);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Trigger animations on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.stat-value').forEach(stat => {
+                const target = parseFloat(stat.getAttribute('data-target'));
+                animateValue(stat, 0, target, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

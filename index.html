@@ -110,6 +110,7 @@
             margin-bottom: 24px;
             background: linear-gradient(to bottom, #fff 50%, #444 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -256,6 +257,70 @@
             transform: translateY(0);
         }
 
+        /* CTA Section */
+        .nexus-cta {
+            margin-top: 100px;
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.05));
+            border-top: 1px solid var(--card-border);
+            border-radius: 60px 60px 0 0;
+        }
+
+        .cta-btn {
+            background: #fff;
+            color: #000;
+            padding: 18px 45px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--transition);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            background: var(--accent-aura);
+            color: #fff;
+        }
+
+        .cta-input-group {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s var(--transition);
+            margin-top: 0;
+            opacity: 0;
+        }
+
+        .cta-input-group.active {
+            max-height: 200px;
+            margin-top: 40px;
+            opacity: 1;
+        }
+
+        .cta-input-group input {
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            padding: 15px 30px;
+            border-radius: 100px;
+            color: #fff;
+            font-family: inherit;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-input-group input:focus {
+            outline: none;
+            border-color: var(--accent-aura);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -328,6 +393,21 @@
             </a>
         </div>
 
+        <section class="nexus-cta reveal">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 800; letter-spacing: -1px;">¿Listo para
+                elevar su marca?</h2>
+            <button class="cta-btn" onclick="toggleCta()">Quiero una web de este nivel</button>
+
+            <div id="ctaInputGroup" class="cta-input-group">
+                <input type="text" id="asuntoInput" placeholder="Escriba el asunto (ej. Mi nueva E-commerce)">
+                <br>
+                <button class="explore-btn" style="background: none; border: none; color: #fff; cursor: pointer;"
+                    onclick="sendToWhatsapp()">
+                    Enviar a WhatsApp <span></span>
+                </button>
+            </div>
+        </section>
+
         <footer>
             &copy; 2026 Nexus Group / Created for High-End Markets
         </footer>
@@ -347,6 +427,19 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // WhatsApp CTA Logic
+        function toggleCta() {
+            document.getElementById('ctaInputGroup').classList.toggle('active');
+            document.getElementById('asuntoInput').focus();
+        }
+
+        function sendToWhatsapp() {
+            const asunto = document.getElementById('asuntoInput').value;
+            const phone = "525638738978";
+            const message = encodeURIComponent(`Hola, me interesa una web de este nivel.\nAsunto: ${asunto || 'Consulta General'}`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
 
         // Background subtle movement
         document.addEventListener('mousemove', (e) => {
